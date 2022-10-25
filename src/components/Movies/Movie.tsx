@@ -9,20 +9,19 @@ interface TProps {
 
 const Movie: FC<TProps> = ({movie}) => {
   return (
-    <li className='transition ease-in-out delay-100 hover:scale-105 hover:bg-white hover:text-black duration-300'>
+    <li className='relative transition ease-in-out delay-100 duration-300 hover:bg-white hover:text-black hover:z-50 hover:scale-105 '>
       <Link href={`/movies/${movie.id}`}>
-        {/* <Image 
+        <Image
           src={movie.Poster}
-          alt={`${movie.title} Poster`}
-        /> */}
-        <img 
-          src={movie.Poster}
-          title={movie.title}
+          title={`${movie.title} Poster`}
           alt={`${movie.title} Poster`}
           className="cursor-pointer"
+          width={250}
+          height={400}
+          layout="responsive"
         />
       </Link>
-      <p className='text-bold pr-2'>{movie.title}</p>
+      <p className='text-xs text-bold text-md pr-2'>{movie.title}</p>
     </li>
   )
 }

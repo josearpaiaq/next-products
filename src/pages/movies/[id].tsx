@@ -2,41 +2,43 @@ import React from 'react'
 import { NextPage, GetServerSideProps } from "next"
 import AppWrapper from "../../components/layouts/AppWrapper"
 import { Movie } from '../../components/Movies/MovieList'
+import Image from 'next/image'
 
 interface TProps {
   movie: Movie
 }
 
 const MovieDetail: NextPage<TProps> = ({movie}) => {
-  // console.log('pelicula', movie)
   return (
     <AppWrapper
       title={movie.title}
       goBack
     >
       <div 
-        className='flex justify-center items-center w-full grow bg-slate-700'
+        className='flex justify-center items-center w-full grow bg-slate-700 p-4'
       >
-        <div className='flex flex-row'>
-          <img 
+        <div className='flex flex-col items-center md:flex-row'>
+          <Image 
             src={movie.Poster}
             title={movie.title}
             alt={`${movie.title} Poster`}
-            width="250"
+            width={250}
+            height={400}
+            layout="fixed"
             className="cursor-pointer"
           />
           <ul 
             className='flex flex-col mx-4 self-start'
           >
-            <li className='text-5xl cursor-pointer text-black hover:text-gray-300'>{movie.title}</li>
+            <li className='text-5xl cursor-pointer text-black'>{movie.title}</li>
             <li>
-              Director: <span className='cursor-pointer text-black hover:text-gray-300'>{movie.Director || 'None'}</span>
+              Director: <span className='cursor-pointer text-gray-300'>{movie.Director || 'None'}</span>
             </li>
             <li>
-              Distribuidor: <span className='cursor-pointer text-black hover:text-gray-300'>{movie.Distributor || 'None'}</span>
+              Distribuidor: <span className='cursor-pointer text-gray-300'>{movie.Distributor || 'None'}</span>
             </li>
             <li>
-              Rotten Tomatoes Rating: <span className='cursor-pointer text-black hover:text-gray-300'>{movie['Rotten Tomatoes Rating'] || 'None'}</span>
+              Rotten Tomatoes Rating: <span className='cursor-pointer text-gray-300'>{movie['Rotten Tomatoes Rating'] || 'None'}</span>
             </li>
           </ul>
         </div>
@@ -46,12 +48,16 @@ const MovieDetail: NextPage<TProps> = ({movie}) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  // console.log('context movie detail', ctx)
-  const res = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + "/movies/" + ctx.params?.id
-  );
-  const movie = await res.json();
-
+  let movie = null
+  try {
+    const res = await fetch(
+      process.env.NEXT_PUBLIC_API_URL + "/movies/" + ctx.params?.id
+    );
+    movie = await res.json();
+    
+  } catch (error) {
+    console.log(error)
+  }
   return {
     props: {
       movie,
