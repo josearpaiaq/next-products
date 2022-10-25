@@ -30,7 +30,7 @@ const useMovies = () => {
     try {
       fetch(`${process.env.NEXT_PUBLIC_API_URL}/movies`)
         .then(res => res.json())
-        .then((data: Movie[]) => setMovies(data.slice(0, 20)))
+        .then((data: Movie[]) => setMovies(data.slice(0, 16)))
         .catch(error => console.error(error))
     } catch (error) {
       console.error(error)

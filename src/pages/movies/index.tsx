@@ -1,12 +1,8 @@
 import AppWrapper from '../../components/layouts/AppWrapper'
 import React, { NextPage } from 'next'
 import { MovieList } from '../../components/Movies/MovieList'
-
-interface TProps {
-  response: string
-}
-
-const Movies: NextPage<TProps> = () => {
+ 
+const Movies: NextPage = () => {
   return (
     <AppWrapper
       title='Movies'
@@ -16,4 +12,4 @@ const Movies: NextPage<TProps> = () => {
   )
 }
 
-export default Movies;
+export default Movies
