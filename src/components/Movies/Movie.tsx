@@ -13,15 +13,15 @@ const Movie: FC<TProps> = ({movie}) => {
       <Link href={`/movies/${movie.id}`}>
         <Image
           src={movie.Poster}
-          title={`${movie.title} Poster`}
-          alt={`${movie.title} Poster`}
+          title={`${movie.Title} Poster`}
+          alt={`${movie.Title} Poster`}
           className="cursor-pointer"
           width={250}
           height={400}
           layout="responsive"
         />
       </Link>
-      <p className='text-xs text-bold text-md pr-2'>{movie.title}</p>
+      <p className='text-xs text-bold text-md pr-2'>{movie.Title}</p>
     </li>
   )
 }

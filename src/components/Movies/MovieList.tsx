@@ -5,7 +5,7 @@ import Movie from './Movie'
 export interface Movie {
   id: number
   Poster: string
-  title: string
+  Title: string
   Distributor: string | null
   Source: string | null
   "US Gross": number 

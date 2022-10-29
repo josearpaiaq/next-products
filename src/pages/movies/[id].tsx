@@ -11,7 +11,7 @@ interface TProps {
 const MovieDetail: NextPage<TProps> = ({movie}) => {
   return (
     <AppWrapper
-      title={movie.title}
+      title={movie.Title}
       goBack
     >
       <div 
@@ -20,8 +20,8 @@ const MovieDetail: NextPage<TProps> = ({movie}) => {
         <div className='flex flex-col items-center md:flex-row'>
           <Image 
             src={movie.Poster}
-            title={movie.title}
-            alt={`${movie.title} Poster`}
+            title={movie.Title}
+            alt={`${movie.Title} Poster`}
             width={250}
             height={400}
             layout="fixed"
@@ -30,7 +30,7 @@ const MovieDetail: NextPage<TProps> = ({movie}) => {
           <ul 
             className='flex flex-col mx-4 self-start'
           >
-            <li className='text-5xl cursor-pointer text-black'>{movie.title}</li>
+            <li className='text-5xl cursor-pointer text-black'>{movie.Title}</li>
             <li>
               Director: <span className='cursor-pointer text-gray-300'>{movie.Director || 'None'}</span>
             </li>
