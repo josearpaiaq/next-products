@@ -1,31 +1,22 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import AppWrapper from '../components/layouts/AppWrapper'
 
 const Home: NextPage = () => {
   return (
-    <>
-      <Head>
-        <title>Products Next.js</title>
-        <meta name="description" content="" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <div 
-          className="
-            h-screen 
-            flex 
-            justify-center 
-            items-center 
-            bg-[url('/home-bg.jpg')]
-          "
-        >
-          <h1 className='text-2xl xl:text-8xl md:text-4xl'>
-            Movies App
+    <AppWrapper
+      title='Home'
+    >
+      <div className="flex justify-center items-center grow flex-col bg-[url('/home-bg.jpg')]">
+        <div className='bg-black bg-opacity-70 flex flex-col w-full grow justify-center items-center'>
+          <h1 className='text-5xl xl:text-9xl md:text-7xl'>
+            Jose Arpaia
           </h1>
+          <h3 className='text-xs'>josearpaiaquintero@gmail.com</h3>
+          <h3 className='text-xs'>jose.arpaia@utp.ac.pa.com</h3>
+          <h3 className='text-xs'>Instagram: @josearpaiaq</h3>
         </div>
-      </main>
-    </>
+      </div>
+    </AppWrapper>      
   )
 }
 
